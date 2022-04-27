@@ -10,7 +10,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 
-public class BOJ2583영역구하기BFS { // 2583 영역구하기
+public class Day78BOJ2583영역구하기BFS { // 2583 영역구하기
 	static int N, M, K;
 	static int[] dr = { -1, 1, 0, 0 }, dc = { 0, 0, -1, 1 };
 	static List<Integer> ans;

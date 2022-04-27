@@ -22,7 +22,7 @@ public class Day79BOJ7569토마토BFS3차원델타 {
 	static int M, N, H; // 가로(c), 세로(r), 높이(h)
 	static int ans, tot;
 	static int[] dh = { -1, 1, 0, 0, 0, 0 }, dr = { 0, 0, -1, 1, 0, 0 }, dc = { 0, 0, 0, 0, -1, 1 };
-	static int[][][] boxes; // H, N, M : 층 > 행 > 열
+	static int[][][] box; // H, N, M : 층 > 행 > 열
 	static Queue<Tmt> q;
 
 	public static void main(String[] args) throws Exception {
@@ -33,7 +33,7 @@ public class Day79BOJ7569토마토BFS3차원델타 {
 		H = Integer.parseInt(st.nextToken());
 		ans = -1; // 시간 초기화
 		tot = H * M * N;
-		boxes = new int[H][N][M]; // 입력 서순 -> 반복문 순서
+		box = new int[H][N][M]; // 입력 서순 -> 반복문 순서
 		q = new LinkedList<>();
 		// 예제 1
 		// 5 3 1 -- 열, 행, 높이
@@ -44,10 +44,10 @@ public class Day79BOJ7569토마토BFS3차원델타 {
 			for (int n = 0; n < N; n++) {
 				st = new StringTokenizer(br.readLine());
 				for (int m = 0; m < M; m++) {
-					boxes[h][n][m] = Integer.parseInt(st.nextToken());
-					if (boxes[h][n][m] == 1)
+					box[h][n][m] = Integer.parseInt(st.nextToken());
+					if (box[h][n][m] == 1)
 						q.add(new Tmt(h, n, m, 0));
-					else if (boxes[h][n][m] == -1)
+					else if (box[h][n][m] == -1)
 						tot--;
 				}
 			}
@@ -63,9 +63,9 @@ public class Day79BOJ7569토마토BFS3차원델타 {
 				int nc = t.c + dc[dir];
 				if (index(nh, nr, nc))
 					continue;
-				if (boxes[nh][nr][nc] != 0)
+				if (box[nh][nr][nc] != 0)
 					continue;
-				boxes[nh][nr][nc] = 1;
+				box[nh][nr][nc] = 1;
 				q.add(new Tmt(nh, nr, nc, t.time + 1));
 			}
 		}

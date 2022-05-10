@@ -3,7 +3,7 @@ package com.ssafy.an;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Day88BOJ2133DP {
+public class Day88BOJ2133타일채우기DP {
 	static int N;
 	static Integer[] dp;
 

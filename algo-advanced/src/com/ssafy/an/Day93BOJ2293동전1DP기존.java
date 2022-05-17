@@ -2,6 +2,7 @@ package com.ssafy.an;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Day93BOJ2293동전1DP기존 { // 2293 동전, 기존에 풀었던 것이어서 그대로 올립니다.
 	static int N, K;
@@ -28,7 +29,7 @@ public class Day93BOJ2293동전1DP기존 { // 2293 동전, 기존에 풀었던 �
 		// dp[4] = dp[3] + dp[2]
 		// dp[3] = dp[2] + dp[1]
 		// dp[2] = dp[1] + dp[0]
-		// dp[1] = dp[1]
+		// dp[1] = dp[0]
 		// dp[0] = 1
 		// dp[k] = dp[k-1] + dp[k-2] + dp[k-5]
 		// dp[k] = dp[k-arr[0] + dp[k-arr[1]] + dp[k-arr[2]]
@@ -38,6 +39,7 @@ public class Day93BOJ2293동전1DP기존 { // 2293 동전, 기존에 풀었던 �
 			for (int k = a; k < K + 1; k++) {
 				dp[k] += dp[k - a];
 			}
+			System.out.println(Arrays.toString(dp).replaceAll("[\\[\\],]", ""));
 		}
 
 		System.out.println(dp[K]);
@@ -68,3 +70,7 @@ public class Day93BOJ2293동전1DP기존 { // 2293 동전, 기존에 풀었던 �
 		br2.close();
 	}
 }
+// 1 : 1
+// 2 : 11 2
+// 3 : 12 21
+// 4 : 1111 
